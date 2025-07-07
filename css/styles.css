@@ -157,40 +157,6 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* Responsive Design for Hero Section */
-@media (max-width: 768px) {
-    .hero-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .hero-text .company-name {
-        font-size: 1.8rem;
-        letter-spacing: 1px;
-    }
-    
-    .hero-text .hero-subtitle {
-        font-size: 1.6rem;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-text .company-name {
-        font-size: 1.5rem;
-        letter-spacing: 0.5px;
-    }
-    
-    .hero-text .hero-subtitle {
-        font-size: 1.3rem;
-    }
-}
-
-
 /* Section Headers */
 .section-header {
     text-align: center;
@@ -345,6 +311,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
+    align-items: flex-start;
 }
 
 .contact-item {
@@ -369,29 +336,59 @@ body {
     color: #666;
 }
 
+/* Contact Form Styles - Updated for Netlify */
 .contact-form {
     background: #f8f9fa;
     padding: 2rem;
     border-radius: 10px;
-}
-
-.form-group {
-    margin-bottom: 1rem;
-}
-
-.form-group input,
-.form-group textarea {
     width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-form label {
+    display: block;
+    font-weight: 500;
+    color: #1B365D;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.contact-form label input,
+.contact-form label textarea {
+    display: block;
+    width: 100%;
+    margin-top: 0.3rem;
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1rem;
+    font-family: inherit;
+    box-sizing: border-box;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+.contact-form label input:focus,
+.contact-form label textarea:focus {
     outline: none;
     border-color: #E74C3C;
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.form-group:last-of-type {
+    margin-bottom: 2rem;
+}
+
+/* Hide spam protection field */
+.contact-form p[style*="display: none"] {
+    display: none !important;
+    visibility: hidden !important;
+    position: absolute !important;
+    left: -9999px !important;
 }
 
 /* Footer */
@@ -455,8 +452,13 @@ body {
         gap: 2rem;
     }
     
-    .hero-text h1 {
-        font-size: 2rem;
+    .hero-text .company-name {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+    
+    .hero-text .hero-subtitle {
+        font-size: 1.6rem;
     }
     
     .stats {
@@ -469,45 +471,39 @@ body {
     }
 }
 
-
-/* Updated Contact Form Styles */
-.contact-form label {
-    display: block;
-    font-weight: 500;
-    color: #1B365D;
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
+@media (max-width: 480px) {
+    .hero-text .company-name {
+        font-size: 1.5rem;
+        letter-spacing: 0.5px;
+    }
+    
+    .hero-text .hero-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    
+    .contact-form {
+        padding: 1.5rem;
+    }
 }
 
-.contact-form label input,
-.contact-form label textarea {
-    display: block;
-    width: 100%;
-    margin-top: 0.3rem;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-family: inherit;
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
 }
 
-.contact-form label input:focus,
-.contact-form label textarea:focus {
-    outline: none;
-    border-color: #E74C3C;
-    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.1);
+/* Animation for sections */
+section {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-/* Remove default form-group input styles for this form */
-.contact-form .form-group {
-    margin-bottom: 1.5rem;
+/* Header background on scroll */
+.header.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
 }
-
-.contact-form .form-group:last-of-type {
-    margin-bottom: 2rem;
-}
-
-
-
-
-
